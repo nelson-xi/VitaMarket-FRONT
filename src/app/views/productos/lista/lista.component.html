@@ -1,0 +1,82 @@
+<div class="mb-3">
+	<form id="filter" class="mb-2" #f="ngForm" (ngSubmit)="onFilter()" novalidate>
+		<div class="row">
+			<div class="col">
+				<div class="row mb-1 g-1">
+					<div class="col-md-3">
+						<label for="nombre">Nombre</label>
+						<input type="search" name="nombre" id="nombre" class="form-control"
+							[(ngModel)]="nombre">
+					</div>
+					<div class="col-md-2">
+						<label for="marcas">Marca</label>
+						<select class="form-select" name="marcas" [(ngModel)]="marca">
+							<option *ngFor="let m of marcas" [value]="m.nombre">{{m.nombre}}</option>
+						</select>
+					</div>
+					<div class="col-md-2">
+						<label for="categorias">Categoria</label>
+						<select [(ngModel)]="categoria" class="form-select" name="categorias">
+							<option *ngFor="let c of categorias" [value]="c.nombre" >{{c.nombre}}</option>
+						</select>
+					</div>
+					<div class="col-md-3">
+						<i class="me-2 fa fa-sort" aria-hidden="true"></i><label>Orden</label>
+						<div class="row g-1">
+							<div class="col">
+								<select [(ngModel)]="orden" class="form-select" name="orden">
+									<option value="Nombre">Nombre</option>
+									<option value="Precio">Precio</option>
+								</select>
+							</div>
+							<div class="col">
+								<select [(ngModel)]="tipo" class="form-select" name="tipo">
+									<option value="ASC">Ascendente</option>
+									<option value="DESC">Descendente</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<i class="me-2 fa fa-filter"></i><label>Filtros</label>
+						<div class="row g-1">
+							<div class="col">
+								<button type="submit" class="btn btn-outline-primary me-1">
+									<i class="me-2 fa fa-search" aria-hidden="true"></i><span>Buscar</span>
+								</button>
+								<button type="button" (click)="onClear()" class="btn btn-outline-danger">
+									<i class="fa fa-times" aria-hidden="true"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+<div class="text-start g-2" *ngIf="productos.length==0; else lista">
+    <h2>Sin resultados...</h2>
+</div>
+<ng-template #lista>
+	<div class="row row-cols-1 row-cols-md-5 g-2 lista">
+		<div class="card-group" *ngFor="let producto of productos">
+			<div class="col" >
+				<div class="card h-100">
+					<a routerLink="/productos/{{producto.id}}">
+						<img class="card-img-top" src="{{producto.imgUrl}}" alt="Card image">
+					</a>
+					<div class="card-body">
+						<p class="precio">S/ {{producto.precio}}</p>
+						<h4 class="titulo">{{producto.nombre}}</h4>
+					</div>
+					<div class="card-footer text-center" style="background:white; padding-bottom: 5px; border:0">
+						<a routerLink="/productos/pedido/{{producto.id}}" class="btn btn-outline-success">
+							<i class="fa fa-shopping-cart" aria-hidden="true"></i> Pedir Ahora</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</ng-template>

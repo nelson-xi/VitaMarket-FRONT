@@ -1,0 +1,34 @@
+<app-menu></app-menu>
+<main>
+    <div class="container card detalle">
+        <div class="row">
+            <div class="col-5 p-3">
+                <img src="{{producto.imgUrl}}" class="card-img-top" alt="...">
+            </div>
+            <div class="col-7 p-3">
+                <div>
+                    <h2 class="text-uppercase">{{producto.nombre}}</h2>
+                    <hr>
+                    <div class="row">
+                        <div class="col-3"><h3>Marca:</h3></div>
+                        <div class="col"><p>{{producto.marca}}</p></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3"><h3>Categoría:</h3></div>
+                        <div class="col"><p>{{producto.categoria}}</p></div>
+                    </div>
+                    <h3 class="pb-2">Descripción:</h3>
+                    <p>{{producto.descripcion}}</p>
+                </div>
+                <div class="mt-5 text-start">
+                    <h3 class="y-4 fs-2">S/ {{producto.precio}}</h3>
+                    <button routerLink="/productos/pedido/{{producto.id}}" type="button" class="btn btn-success">
+                        <span>Realizar Pedido</span><i class="ms-2 fa fa-long-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<app-footer></app-footer>
+

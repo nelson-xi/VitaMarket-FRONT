@@ -1,0 +1,36 @@
+<app-menu></app-menu>
+
+<div class="text-center" *ngIf="isLogged; else loggedOut">
+    <h2>Ya has iniciado sesión</h2>
+</div>
+
+<ng-template #loggedOut>
+    <main class="text-center">
+        <div class="container justify-content-center">
+            <div class="form-signin">
+                <form id="formlogin" class="mb-2" #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+                    <img class="mb-4" src="assets/images/leaf-1.svg" alt="" width="72" height="57">
+                    <h1 class="h3 mb-3 fw-normal disable-select">Inicio de sesión</h1>
+                
+                    <div class="form-floating">
+                        <input type="text" class="form-control" name="username" id="username" placeholder="Nombre de usuario"
+                        [(ngModel)]="username" required>
+                        <label for="username">Nombre de usuario</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña"
+                        [(ngModel)]="password" required>
+                        <label for="password">Contraseña</label>
+                    </div>
+                
+                    <button class="w-100 btn btn-success btn-lg btn-block" [disabled]="!f.valid">
+                        <i class="fa fa-sign-in-alt"></i> Ingresar</button>
+                </form>
+                <div *ngIf="f.submitted && isLoginFail" class="error-msg">
+                    <i class="fa fa-times-circle"></i> Las credenciales no son válidas.
+                </div>
+                <p class="mt-3 mb-3 text-muted disable-select">&copy;VitaMarket 2021</p>
+            </div>
+        </div>
+    </main>
+</ng-template>

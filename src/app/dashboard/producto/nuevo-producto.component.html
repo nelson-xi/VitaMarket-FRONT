@@ -1,0 +1,75 @@
+<app-menu></app-menu>
+<main>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-9 mx-auto">
+                <button class="btn btn btn-block text-start text-success" (click)="volver()">
+                    <span class="fs-2 align-middle"><i class="fas fa-arrow-circle-left"></i></span> Volver</button>
+            </div>
+            <div class="col-md-8 mx-auto">
+                <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+                    <div class="row py-2 g-2">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre"
+                                    [(ngModel)]="nombre" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="precio">Precio</label>
+                                <input type="number" class="form-control" id="precio" name="precio"
+                                    [(ngModel)]="precio" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="stock">Stock</label>
+                                <input type="number" class="form-control" id="stock" name="stock"
+                                    [(ngModel)]="stock" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row py-2 g-2">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="marca">Marca</label>
+                                <select [(ngModel)]="marca" class="form-select" name="marcas">
+                                    <option *ngFor="let marca of marcas" 
+                                        [value]="marca.nombre" required>{{marca.nombre}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="nombre">Categoria</label>
+                                <select [(ngModel)]="categoria" class="form-select" name="categorias">
+                                    <option *ngFor="let categoria of categorias" 
+                                        [value]="categoria.nombre" required>{{categoria.nombre}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="imagen">URL Imagen</label>
+                                <input type="text" class="form-control" id="imagen" name="imagen"
+                                    [(ngModel)]="imgUrl" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row py-2 g-2">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="nombre">Descripción</label>
+                                <textarea class="form-control" aria-label="With textarea" name="descripcion"
+                                    [(ngModel)]="descripcion" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="mt-2 btn btn-outline-success btn-block" [disabled]="!f.valid">Registrar Producto</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

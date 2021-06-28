@@ -1,0 +1,15 @@
+main {
+    margin-top: 6rem;
+}
+.lista h4 {
+    font-size: 1.1rem;
+    margin-top: 5px;
+    padding: 0;
+    font-weight: 400;
+}
+.lista p {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-top: 3px;
+    color: #333;
+}

@@ -1,0 +1,64 @@
+<app-menu></app-menu>
+<main>
+	<div class="container">
+		<div class="row g-0">
+			<div class="col-md-3">
+				<table class="table">
+					<thead class="table-dark">
+						<tr>
+							<th scope="col" colspan="2">Imagen</th>
+						</tr>
+					</thead>
+					<tr>
+						<td class="px-2"><img class="card-img-top" src="{{producto.imgUrl}}" alt="Imagen"></td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-md-9">
+				<table class="table">
+					<thead class="table-dark">
+						<tr>
+							<th scope="col" colspan="2">Detalles</th>
+						</tr>
+					</thead>
+					<tr>
+						<th scope="row" class="atributos align-top">ID</th>
+						<td>{{producto.id}}</td>
+					</tr>
+					<tr>
+						<th scope="row" class="atributos align-top">Nombre</th>
+						<td>{{producto.nombre}}</td>
+					</tr>
+					<tr>
+						<th scope="row" class="atributos align-top">Precio</th>
+						<td>S/ {{producto.precio}}</td>
+					</tr>
+					<tr>
+						<th scope="row" class="atributos align-top">Stock</th>
+						<td>{{producto.stock}}</td>
+					</tr>
+					<tr>
+						<th scope="row" class="atributos align-top">Marca</th>
+						<td>{{producto.marca}}</td>
+					</tr>
+					<tr>
+						<th scope="row" class="atributos align-top">Categoría</th>
+						<td>{{producto.categoria}}</td>
+					</tr>
+					<tr>
+						<th scope="row" class="atributos align-top">URL Imagen</th>
+						<td>{{producto.imgUrl}}</td>
+					</tr>
+					<tr>
+						<th scope="row" class="atributos align-top">Descripción</th>
+						<td>{{producto.descripcion}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="card-footer">
+			<button class="btn btn-outline-success btn-block" (click)="volver()">
+				<i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
+		</div>
+	</div>
+</main>

@@ -1,0 +1,52 @@
+<header class="bg-dark text-white fixed-top">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start menu">
+			<a routerLink="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+				<img src="assets/images/leaf-1.svg" class="img-fluid" alt="logo.svg" width="32">
+				<span class="fs-4 px-2 text-white disable-select">VitaMarket</span>
+			</a>
+
+			<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0">
+				<li><a routerLink="/productos" class="nav-link px-2 text-white fs-6">Productos</a></li>
+				<li><a routerLink="/" class="nav-link px-2 text-white fs-6">Nosotros</a></li>
+				<li><a routerLink="/" class="nav-link px-2 text-white fs-6">Ubícanos</a></li>
+				<li><a routerLink="/" class="nav-link px-2 text-white fs-6">Ayuda</a></li>
+			</ul>
+
+			<div class="text-end" *ngIf="!isLogged">
+				<a routerLink="/login"><button type="button" class="btn btn-outline-light me-2">Ingresar</button></a>
+				<a routerLink="/registro"><button type="button" class="btn btn-warning">Registrarse</button></a>
+			</div>
+        
+			<div class="text-end" *ngIf="isAdmin">
+				<a routerLink="/admin/productos"><button type="button" class="btn btn-outline-warning">
+					<i class="fas fa-tachometer-alt"></i> Dashboard</button>
+				</a>
+			</div>
+
+			<div class="text-end mx-3" *ngIf="isUser">
+				<a routerLink="/{{nombreUsuario}}/pedidos"><button type="button" class="btn btn-success">
+					<i class="fas fa-shopping-cart"></i> Mis Pedidos</button>
+				</a>
+			</div>
+
+        	<div class="dropdown text-end" *ngIf="isLogged">
+				<a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+					<i class="fas fa-user-circle fs-2 align-middle"></i>
+					<span class="fs-7 px-2 text-white disable-select align-middle fs-6">{{nombreUsuario}}</span>
+				</a>
+				<ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+					<li><a class="dropdown-item fs-6" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Carrito</a></li>
+					<li><a class="dropdown-item fs-6" href="#"><i class="fa fa-heart" aria-hidden="true"></i> Deseados</a></li>
+					<li><a class="dropdown-item fs-6" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Mis compras</a></li>
+					<li><a class="dropdown-item fs-6" href="#"><i class="fa fa-cog" aria-hidden="true"></i> Configuración</a></li>
+					<li><a class="dropdown-item fs-6" href="#"><i class="fa fa-user" aria-hidden="true"></i> Perfil</a></li>
+					<li><hr class="dropdown-divider"></li>
+					<li (click)="onLogOut()"><a class="dropdown-item fs-6" href="#"><i class="fas fa-power-off"></i> Cerrar Sesión</a></li>
+				</ul>
+        	</div>
+
+			
+      	</div>
+    </div>
+</header>

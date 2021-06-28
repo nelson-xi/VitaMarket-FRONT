@@ -1,0 +1,34 @@
+<app-menu></app-menu>
+<main>
+    <div class="container">
+        <div class="text-start g-2" *ngIf="pedidos.length==0; else lista">
+            <h3 class="text-center">Aún no has realizado ningún pedido</h3>
+        </div>
+        <ng-template #lista>
+            <table class="table table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>PRODUCTO</th>
+                        <th>CANTIDAD</th>
+                        <th>TOTAL</th>
+                        <th>FECHA</th>
+                        <th>ESTADO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pedido of pedidos">
+                        <td>
+                            <button class="btn btn-outline-success" routerLink="/productos/{{pedido.idProducto}}">
+                                <i class="far fa-eye"></i> Ver Producto
+                            </button>
+                        </td>
+                        <td>{{pedido.cantidad}}</td>
+                        <td>S/ {{pedido.total}}</td>
+                        <td>{{pedido.fecha | date : 'dd/MM/yyyy HH:mm:ss'}}</td>
+                        <td><span class="badge bg-secondary">{{pedido.estado}}</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </ng-template>
+    </div>
+</main>

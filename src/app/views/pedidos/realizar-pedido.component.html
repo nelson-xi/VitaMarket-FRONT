@@ -1,0 +1,68 @@
+<app-menu></app-menu>
+<main>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-9 mx-auto">
+                <button class="btn btn btn-block text-start text-success" (click)="volver()">
+                    <span class="fs-2 align-middle"><i class="fas fa-arrow-circle-left"></i></span> Volver</button>
+            </div>
+            <div class="col-md-8 mx-auto">
+                <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+                    <div class="row py-2 g-2">
+                        <div class="card-header row m-0">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="cantidad">Cantidad</label>
+                                    <select [(ngModel)]="cantidad" class="form-select" name="cantidad">
+                                        <option value="1" selected>1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Total a pagar</label>
+                                    <div>
+                                        <button type="button" class="btn btn-light btn-md disabled">S/ {{precio * cantidad}}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row py-2 g-2">
+                        <div class="card-body row">
+                            <h2>Domicilio</h2>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="calle">Dirección</label>
+                                    <input type="text" class="form-control" id="calle" name="calle"
+                                        [(ngModel)]="calle" required>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="distrito">Distrito</label>
+                                    <input type="text" class="form-control" id="distrito" name="distrito"
+                                        [(ngModel)]="distrito" required>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="ciudad">Ciudad</label>
+                                    <input type="text" class="form-control" id="ciudad" name="ciudad"
+                                        [(ngModel)]="ciudad" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="mt-2 btn btn-outline-success w-25" [disabled]="!f.valid">Realizar Pedido</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

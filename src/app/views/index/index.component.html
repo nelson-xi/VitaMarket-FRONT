@@ -1,0 +1,53 @@
+<app-menu></app-menu>
+<main>
+	<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+		<div class="carousel-indicators">
+			<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+				aria-current="true" aria-label="Slide 1"></button>
+			<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+			<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+		</div>
+		<div class="carousel-inner">
+			<div class="carousel-item active" data-bs-interval="10000">
+				<img src="/assets/images/slide-1.jpg" class="d-block w-100" alt="...">
+			</div>
+			<div class="carousel-item" data-bs-interval="2000">
+				<img src="/assets/images/slide-2.jpg" class="d-block w-100" alt="...">
+			</div>
+			<div class="carousel-item">
+				<img src="/assets/images/slide-3.jpg" class="d-block w-100" alt="...">
+			</div>
+		</div>
+		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Previous</span>
+		</button>
+		<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Next</span>
+		</button>
+	</div>
+	<div class="container">
+		<div class="p-5 mb-4 bg-light rounded-3">
+			<div class="container-fluid py-5">
+				<h1 class="display-6 fw-bold">Amplia Gama de Productos Naturales</h1>
+				<p class="col-md-8 fs-4">En VitaMarket puedes encontrar un amplio catálogo de productos 
+					naturales. Todos ellos disponibles para entrega a domicilio de forma gratuita, dentro de la ciudad de Trujillo.</p>
+				<button class="btn btn-success btn-lg mt-3" type="button" routerLink="/productos">VER CATÁLOGO</button>
+			</div>
+		</div>
+		<hr class="featurette-divider">
+		<div class="row featurette">
+			<div class="col-md-7">
+				<h2 class="featurette-heading">Vive sano, vive bien. <span class="text-muted">VitaMarket</span></h2>
+				<p class="lead">And yes, this is the last block of representative placeholder content. Again, not really
+					intended to be actually read, simply here to give you a better view of what this would look like with some
+					actual content. Your content.</p>
+			</div>
+			<div class="col-md-5">
+					<img src="/assets/images/logo_salud.png" class="" alt="...">
+			</div>
+		</div>
+	</div>
+	<app-footer></app-footer>
+</main>
